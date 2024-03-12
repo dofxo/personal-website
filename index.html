@@ -1,11 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./favicon.png">
     <title>Mohammad Kargar | dofxo</title>
 </head>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #efefef;
+    }
+
+    .container {
+        width: 80vw;
+        margin: 5% auto;
+        max-width: 900px;
+    }
+
+    a {
+        color: #222;
+        text-decoration: underline;
+        width: -moz-fit-content;
+        width: fit-content;
+    }
+
+    #title {
+        h1 {
+            margin-bottom: 5px;
+            font-size: 35px;
+
+            @media screen and (max-width:900px) {
+                font-size: 30px;
+            }
+        }
+
+        p {
+            margin-top: 0;
+            font-size: 14px;
+        }
+    }
+
+    #socials {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-size: 14px;
+
+        a {
+            color: blue;
+        }
+    }
+
+    #projects {
+        margin-top: 30px;
+        gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        @media screen and (max-width:650px) {
+            margin-top: 40px;
+            grid-template-columns: 1fr;
+        }
+
+        .project {
+            padding: 5px 30px;
+            border: 1px solid;
+            border-radius: 10px;
+
+            h3 {
+                color: palevioletred;
+            }
+
+            p {
+                line-height: 25px;
+                color: #555555;
+            }
+        }
+    }
+</style>
+
 <body>
-    
+    <div class="container">
+        <main>
+            <section id="info">
+                <div id="title">
+                    <h1>Mohammad Kargar</h1>
+                    <p>Front-end developer | since 2022</p>
+                </div>
+
+                <div id="socials">
+                    <a href="https://www.linkedin.com/in/mohammad-kargar-577246119/">Linkedin</a>
+                    <a href="https://github.com/dofxo/">Github</a>
+                    <a href="https://www.instagram.com/mohammadkargar.code/">Instagram</a>
+                </div>
+
+            </section>
+            <hr>
+            <section id="projects"></section>
+        </main>
+    </div>
 </body>
+
+<script>
+    const projectsDetails = [
+        {
+            projectName: "SilverBox",
+            anchorLink: "https://silverboxjs.ir/",
+            description: `Lightweight and versatile JavaScript library to create customizable modals and alerts for your
+            web applications. Built with pure JavaScript and zero dependencies.`
+        },
+        {
+            projectName: "Tonrow",
+            anchorLink: "https://tonrow.ir/",
+            description: `Online delivery Web Application for Iran, Busher city which contains shopping and package transfer requests.`
+        },
+    ]
+
+    projectsDetails.forEach(item => {
+        projects.innerHTML += 
+        `
+        <div class="project">
+        <a href="${item.anchorLink ?? ""}">
+            <h3>${item.projectName ?? ""}</h3>
+        </a>
+        <p>${item.description?.trim() ?? ""}</p>
+        </div>
+        `
+    })
+</script>
+
 </html>
